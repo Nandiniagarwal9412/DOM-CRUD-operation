@@ -1,0 +1,313 @@
+/* Navbar */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+nav {
+    width: 100%;
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Brand name */
+nav h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2563eb;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+
+/* Create Product button */
+nav button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 9px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+nav button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+/* Click effect */
+nav button:active {
+    transform: scale(0.97);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav h1 {
+        font-size: 23px;
+    }
+
+    nav button {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+/* Products container */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    background-color: #f5f6fa;
+}
+
+/* Product card */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.product-card .img {
+    width: 100%;
+    height: 230px;
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+.product-card .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .img img {
+    transform: scale(1.08);
+}
+
+/* Product details */
+.product-card .text {
+    padding: 18px 20px 10px;
+}
+
+.product-card .text h3 {
+    font-size: 21px;
+    color: #222222;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.product-card .text p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.product-card .text p:last-child {
+    color: #16803c;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+/* Buttons container */
+.product-card .btns {
+    display: flex;
+    gap: 12px;
+    padding: 15px 20px 20px;
+}
+
+/* Common button styling */
+.product-card .btns button {
+    flex: 1;
+    padding: 11px 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Update button */
+.product-card .btns button:first-child {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.product-card .btns button:first-child:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.03);
+}
+
+/* Delete button */
+.product-card .btns button:last-child {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.product-card .btns button:last-child:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+    transform: scale(1.03);
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .products {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .product-card .img {
+        height: 210px;
+    }
+}
+/* Form container */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: none;
+    z-index: 999;
+}
+.form {
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    position:absolute;
+    display:none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+}
+
+/* Form layout */
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Input fields */
+.form input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    outline: none;
+    background-color: #f9fafb;
+    color: #222222;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Placeholder */
+.form input::placeholder {
+    color: #9ca3af;
+}
+
+/* Focus effect */
+.form input:focus {
+    border-color: #2563eb;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Create button */
+.form button {
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover */
+.form button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Button click */
+.form button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .form {
+        max-width: calc(100% - 30px);
+        margin: 25px auto;
+        padding: 22px;
+    }
+
+    .form input,
+    .form button {
+        font-size: 14px;
+    }
+}
+/* Top section of the form */
+.form .top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Close button (X) */
+.form .top h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.form .top h1:hover {
+    color: #dc2626;
+    transform: scale(1.15);
+}
